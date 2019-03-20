@@ -1,0 +1,59 @@
+<template>
+  <div>
+    <div>
+      <mt-swipe :auto="3000" style="height: 200px;">
+        <mt-swipe-item >1</mt-swipe-item>
+        <mt-swipe-item >2</mt-swipe-item>
+        <mt-swipe-item >3</mt-swipe-item>
+      </mt-swipe>
+    </div>
+
+    <div>
+      <div  class="flex flex-v" style="height: 70px;text-align: center " >
+        <div  class="flex flex-1" style="height:50px;" >
+          <div  class="flex-1 iconfont icon-mayi-huodong header-icon"></div>
+          <div  class="flex-1 iconfont icon-mayi-huodong header-icon"></div>
+          <div  class="flex-1 iconfont icon-mayi-huodong header-icon"></div>
+          <div  class="flex-1 iconfont icon-mayi-huodong header-icon"></div>
+        </div>
+        <div  class="flex flex-1" style="height: 20px;">
+          <div class="flex-1">话题</div>
+          <div class="flex-1">优选</div>
+          <div class="flex-1">特惠</div>
+          <div class="flex-1">活动</div>
+        </div>
+     </div>
+
+     <div class="" style="margin-top: 30px">
+        <p style="margin-left: 5%;font-size: 15px">品牌制造商直供</p><span style="margin-right: 15%;font-size: 10px;color: #969896">更多推荐</span>
+        <!--<div class="flex wrap" style="width:100%;">-->
+          <!--<div v-for="item in items"  class="flex  flex-v flex " >-->
+            <!--&lt;!&ndash;<lump-components :item=item></lump-components>&ndash;&gt;-->
+          <!--</div>-->
+        <!--</div>-->
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  import LumpComponents from "@/views/SystemHome/LumpComponents";
+  export default {
+    components: {LumpComponents},
+    data(){
+      return{
+         items:[],
+      }
+    }
+  }
+</script>
+
+<style scoped>
+  >>>.mint-swipe-items-wrap{
+    background-color: #e7e1cd;
+  }
+  .header-icon {
+    font-size: 25px;
+    color: darkgreen;
+  }
+</style>
