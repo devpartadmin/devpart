@@ -20,7 +20,7 @@
           <div class="flex-1">话题</div>
           <div class="flex-1">优选</div>
           <div class="flex-1">特惠</div>
-          <div class="flex-1">活动</div>
+          <div class="flex-1">活动1</div>
         </div>
      </div>
 
