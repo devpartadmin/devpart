@@ -26,11 +26,7 @@
 
      <div class="" style="margin-top: 30px">
         <p style="margin-left: 5%;font-size: 15px">品牌制造商直供</p><span style="margin-right: 15%;font-size: 10px;color: #969896">更多推荐</span>
-        <!--<div class="flex wrap" style="width:100%;">-->
-          <!--<div v-for="item in items"  class="flex  flex-v flex " >-->
-            <!--&lt;!&ndash;<lump-components :item=item></lump-components>&ndash;&gt;-->
-          <!--</div>-->
-        <!--</div>-->
+
       </div>
     </div>
   </div>
