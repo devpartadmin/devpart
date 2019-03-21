@@ -14,6 +14,7 @@ export default new Router({
     {
       path: '',
       name: 'index',
+      redirect: {name: 'HomePage'},
       component: () => import('@/views/SystemHome/Index'),
       children:[
         {
@@ -35,7 +36,6 @@ export default new Router({
             {
               path: 'list',
               name: 'HomePageIndexFoodsList',
-              props:true,
               meta: {breadcrumbTitle: '食品列表'},
               component: ()=>import('@/views/home/list'),
             },

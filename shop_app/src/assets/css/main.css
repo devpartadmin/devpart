@@ -2,3 +2,14 @@
 body {
     margin: 0;
 }
+.list{
+    margin-left: 9px;
+    color:dimgray;
+    font-size: 14px;
+}
+.much{
+    margin-left: 20px;
+    color:darkgray;
+    font-size: 10px;
+    font-weight:bold;
+}

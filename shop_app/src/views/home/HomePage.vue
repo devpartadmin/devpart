@@ -1,10 +1,10 @@
 <template>
   <div style="height: 100%">
     <div>
-      <mt-swipe :auto="3000" style="height: 200px;">
-        <mt-swipe-item >1</mt-swipe-item>
-        <mt-swipe-item >2</mt-swipe-item>
-        <mt-swipe-item >3</mt-swipe-item>
+      <mt-swipe :auto="3000" style="height: 200px;" >
+        <mt-swipe-item v-for="item in images"><img class="swipe-img" :src="item.src"/></mt-swipe-item>
+        <!--<mt-swipe-item ><img class="swipe-img" :src="'./static/image/水果.jpg'"/></mt-swipe-item>-->
+        <!--<mt-swipe-item ><img class="swipe-img" :src="'./static/image/香鱼片.jpg'"/></mt-swipe-item>-->
       </mt-swipe>
     </div>
 
@@ -27,7 +27,7 @@
 
 
       <title-components :title="'零食铺子'">
-        <span slot="right">
+        <span slot="right" @click="$router.push({name:'HomePageIndexFoodsList',params:{more_suggest:0}})">
           更多推荐 <span class="iconfont icon-course"></span>
         </span>
       </title-components>
@@ -41,7 +41,7 @@
       </div>
 
       <title-components :title="'人气推荐'">
-        <span slot="right">
+        <span slot="right" @click="$router.push({name:'HomePageIndexFoodsList',params:{more_suggest:1}})">
           更多推荐 <span class="iconfont icon-course"></span>
         </span>
       </title-components>
@@ -76,12 +76,19 @@
           {id:5,title:"乐事薯片",much:"3.5"},
           {id:6,title:"乐事薯片",much:"3.5"},
         ],
+        images:[
+          {id:1,src:"./static/image/乐事薯片.jpg"},
+          {id:2,src:"./static/image/水果.jpg"},
+          {id:3,src:"./static/image/香鱼片.jpg"},
+        ],
       }
     }
   }
 </script>
 
 <style scoped>
+  img.swipe-img {width: 100%}
+
   >>>.mint-swipe-items-wrap{
     background-color: #e7e1cd;
   }
@@ -89,17 +96,7 @@
     font-size: 25px;
     color: coral;
   }
-  .list{
-    margin-left: 9px;
-    color:dimgray;
-    font-size: 14px;
-  }
-  .much{
-    margin-left: 20px;
-    color:darkgray;
-    font-size: 10px;
-    font-weight:bold;
-  }
+
   hr{
     border-color: lightgray;
     border-top: 0px;
