@@ -9,7 +9,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      redirect:{name:'index'},
+      redirect:{name:'HomePageIndex'},
     },
     {
       path: '',
@@ -23,20 +23,44 @@ export default new Router({
           meta: {breadcrumbTitle: '首页'},
           component: {
             render() {
-              return <router-view/>
+              return <router-view />;
             }
           },
           children: [
             {
               path: 'pageIndex',
               name: 'HomePageIndex',
-              component: () => import('@/views/SystemHome/HomePage'),
+              component: () => import('@/views/home/HomePage'),
+            },
+            {
+              path: 'list',
+              name: 'HomePageIndexFoodsList',
+              props:true,
+              meta: {breadcrumbTitle: '食品列表'},
+              component: ()=>import('@/views/home/list'),
+            },
+          ]
+        },
+        {
+          path:'indent',
+          name:'Indent',
+          redirect:{name:'IndentIndex'},
+          meta: {breadcrumbTitle: '订单'},
+          component: {
+            render() {
+              return <router-view/>
+            }
+          },
+          children:[
+            {
+              path: '',
+              name: 'IndentIndex',
+              component: () => import('@/views/indentManage/IndentIndex'),
             }
           ]
         }
-
       ]
-    }
+    },
 
   ]
 })

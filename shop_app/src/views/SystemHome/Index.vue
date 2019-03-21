@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex flex-v" style="height:100%">
     <!--<div>-->
     <!--<span class="iconfont icon-shouye_gouwuche"></span>-->
     <!--<span class="iconfont icon-calendar"></span>-->
@@ -13,9 +13,9 @@
 
     </mt-header>
 
-    <router-view></router-view>
+    <router-view class="flex-1" style="margin-bottom: 50px;overflow: auto"></router-view>
 
-    <mt-tabbar v-model="selected">
+    <mt-tabbar @input="switchNewTab" v-model="selected">
       <mt-tab-item id="首页">
         <div class="iconfont icon-shouye1 header-icon"></div>
         首页
@@ -45,6 +45,19 @@
         selected: "",
       }
     },
+    methods:{
+      switchNewTab(tabName) {
+        console.log('switchNewTab' , tabName)
+        switch (tabName) {
+          case '首页': this.$router.push({name: 'HomePageIndex'});break;
+          case '订单': this.$router.push({name: 'IndentIndex'});break;
+          case '发现': this.$router.push({name: ''});break;
+          case '我的': this.$router.push({name: ''});break;
+          default:
+            console.error('未知的tab');
+        }
+      },
+    },
 
   }
 </script>
@@ -52,6 +65,6 @@
 <style scoped>
   .header-icon {
     font-size: 25px;
-    color: darkgreen;
+    color: coral;
   }
 </style>
