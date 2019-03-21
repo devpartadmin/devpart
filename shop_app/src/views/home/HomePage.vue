@@ -33,8 +33,8 @@
       </title-components>
 
       <div style="margin-top: 10px; flex-direction: row" class="flex wrap">
-        <div style="margin-left: 30px;margin-top: 40px" class="flex-1" v-for="item in foodsItems">
-          <div><img height="70" :src="'./static/image/乐事薯片.jpg'"  /></div>
+        <div style="width: 100%;margin-top: 40px" class="flex-1" v-for="item in foodsItems">
+          <div style="width: 100%;text-align: center"><img width="120" :src="'./static/image/乐事薯片.jpg'"  /></div>
           <div class="list">{{item.title}}</div>
           <div class="much">￥{{item.much}}</div>
         </div>
@@ -47,10 +47,10 @@
       </title-components>
 
       <div style="margin-top: 10px; flex-direction: row" class="flex wrap">
-        <div style="margin-left: 30px;margin-top: 40px" class="flex-1" v-for="item in foodsItems">
-          <div><img height="70" :src="'./static/image/乐事薯片.jpg'"  /></div>
-          <div class="list">{{item.title}}</div>
-          <div class="much">￥{{item.much}}</div>
+        <div style="width: 100%;text-align: center;margin-top: 40px" class="flex-1" v-for="item in foodsItems">
+          <div style="width: 100%;text-align: center"><img height="80" :src="'./static/image/乐事薯片.jpg'"  /></div>
+          <div  class="hot_list">{{item.title}}</div>
+          <div  class="hot_much">￥{{item.much}}</div>
         </div>
       </div>
 
@@ -100,5 +100,18 @@
   hr{
     border-color: lightgray;
     border-top: 0px;
+  }
+  .hot_list{
+    width: 100%;
+    text-align: center;
+    color:dimgray;
+    font-size: 15px;
+  }
+  .hot_much{
+    width: 100%;
+    text-align: center;
+    color:darkgray;
+    font-size: 13px;
+    font-weight:bold;
   }
 </style>

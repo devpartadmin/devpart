@@ -3,12 +3,14 @@ body {
     margin: 0;
 }
 .list{
-    margin-left: 9px;
     color:dimgray;
-    font-size: 14px;
+    font-size: 9px;
+    width: 100%;
+    text-align: center;
 }
 .much{
-    margin-left: 20px;
+    width: 100%;
+    text-align: center;
     color:darkgray;
     font-size: 10px;
     font-weight:bold;
