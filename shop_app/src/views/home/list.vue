@@ -1,6 +1,13 @@
 <template>
-  <div style="background-color: #cdd0cd">
-    <div style="margin-top: 10px; flex-direction: row">
+  <div style="background-color: rgba(234,237,234,0.66);height: 100%" class="flex flex-v">
+    <mt-header title="更多商品" class="header-title">
+      <router-link to="/" slot="left">
+        <mt-button  class="iconfont icon-iconfront-4 header-icon"></mt-button>
+      </router-link>
+      <mt-button icon="more" slot="right"></mt-button>
+    </mt-header>
+
+    <div class="flex-1" style="overflow: auto">
       <div style="border-radius:8px;display:inline-block; width: 46%;margin: 5px;background-color: white" class="flex-1" v-for="item in foodsItems">
         <div style="width: 100%;text-align: center">
           <img width="100%" style="border-radius:8px;" :src="'./static/image/乐事薯片.jpg'"  />
@@ -55,6 +62,9 @@
           {id:26,title:"乐事薯片",much:"3.5",width:"100",height:"70"},
         ],
       };
+    },
+    methods:{
+
     }
   }
 </script>
@@ -72,6 +82,13 @@
     color:darkgray;
     font-size: 13px;
     font-weight:bold;
+  }
+  >>>.mint-header{
+    background-color: rgba(205,208,205,0.66);
+  }
+  .header-title{
+    font-size: 20px;
+    color:black;
   }
 </style>
 

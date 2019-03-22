@@ -67,4 +67,7 @@
     font-size: 25px;
     color: coral;
   }
+  >>>.mint-header{
+    background-color: rgba(205,208,205,0.66);
+  }
 </style>

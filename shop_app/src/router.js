@@ -33,12 +33,6 @@ export default new Router({
               name: 'HomePageIndex',
               component: () => import('@/views/home/HomePage'),
             },
-            {
-              path: 'list',
-              name: 'HomePageIndexFoodsList',
-              meta: {breadcrumbTitle: '食品列表'},
-              component: ()=>import('@/views/home/list'),
-            },
           ]
         },
         {
@@ -60,6 +54,12 @@ export default new Router({
           ]
         }
       ]
+    },
+    {
+      path: '/list',
+      name: 'HomePageIndexFoodsList',
+      meta: {breadcrumbTitle: '食品列表'},
+      component: ()=>import('@/views/home/list'),
     },
 
   ]

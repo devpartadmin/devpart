@@ -38,7 +38,7 @@
           <div class="shang-xin" style="position: absolute">
             上新
           </div>
-          <div style="width: 100%;text-align: center"><img width="120" :src="'./static/image/乐事薯片.jpg'"  /></div>
+          <div style="width: 100%;text-align: center" @click="add_car(item.id)"><img width="120" :src="'./static/image/乐事薯片.jpg'"  /></div>
           <div class="list">{{item.title}}</div>
           <div class="much">￥{{item.much}}</div>
         </div>
@@ -91,6 +91,11 @@
           {id:3,src:"./static/image/香鱼片.jpg"},
         ],
       }
+    },
+    methods:{
+      add_car(id){
+        console.log("id",id);
+      }
     }
   }
 </script>
@@ -100,10 +105,6 @@
 
   >>>.mint-swipe-items-wrap{
     background-color: #e7e1cd;
-  }
-  .header-icon {
-    font-size: 25px;
-    color: coral;
   }
 
   hr{
@@ -138,5 +139,9 @@
   .ren-qi{
     right: 15px;
     top: -20px;
+  }
+  .shop-car{
+    font-size: 27px;
+    color: orange;
   }
 </style>
