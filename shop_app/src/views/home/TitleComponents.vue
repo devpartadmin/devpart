@@ -1,5 +1,5 @@
 <template>
-  <div class="" style="margin-top: 30px">
+  <div class="" style="margin-top: 20px">
     <hr>
     <div>
       <span style="margin-left: 5%;font-size: 15px">{{title}}</span>

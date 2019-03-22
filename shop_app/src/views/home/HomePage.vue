@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 100%">
+  <div style="height: 100%;background-color: rgba(234,237,234,0.66);position: relative">
     <div>
       <mt-swipe :auto="3000" style="height: 200px;" >
         <mt-swipe-item v-for="item in images"><img class="swipe-img" :src="item.src"/></mt-swipe-item>
@@ -9,7 +9,7 @@
     </div>
 
     <div>
-      <div  class="flex flex-v" style="height: 70px;text-align: center " >
+      <div  class="flex flex-v" style="height: 70px;text-align: center;background-color: white; " >
         <div  class="flex flex-1" style="height:50px;" >
           <div  class="flex-1 iconfont icon-mayi-huodong header-icon"></div>
           <div  class="flex-1 iconfont icon-mayi-huodong header-icon"></div>
@@ -25,7 +25,7 @@
      </div>
 
 
-
+     <div style="background-color: white;">
       <title-components :title="'零食铺子'">
         <span slot="right" @click="$router.push({name:'HomePageIndexFoodsList',params:{more_suggest:0}})">
           更多推荐 <span class="iconfont icon-course"></span>
@@ -33,13 +33,19 @@
       </title-components>
 
       <div style="margin-top: 10px; flex-direction: row" class="flex wrap">
-        <div style="width: 100%;margin-top: 40px" class="flex-1" v-for="item in foodsItems">
+        <div style="width: 100%;margin-top: 30px;position: relative" class="flex-1" v-for="item in foodsItems">
+
+          <div class="shang-xin" style="position: absolute">
+            上新
+          </div>
           <div style="width: 100%;text-align: center"><img width="120" :src="'./static/image/乐事薯片.jpg'"  /></div>
           <div class="list">{{item.title}}</div>
           <div class="much">￥{{item.much}}</div>
         </div>
       </div>
+     </div>
 
+      <div style="background-color: white;">
       <title-components :title="'人气推荐'">
         <span slot="right" @click="$router.push({name:'HomePageIndexFoodsList',params:{more_suggest:1}})">
           更多推荐 <span class="iconfont icon-course"></span>
@@ -47,13 +53,16 @@
       </title-components>
 
       <div style="margin-top: 10px; flex-direction: row" class="flex wrap">
-        <div style="width: 100%;text-align: center;margin-top: 40px" class="flex-1" v-for="item in foodsItems">
+        <div style="width: 100%;text-align: center;margin-top: 20px;position: relative" class="flex-1" v-for="item in foodsItems">
+          <div class="ren-qi" style="position: absolute">
+            <mt-badge type="error">￥10</mt-badge>
+          </div>
           <div style="width: 100%;text-align: center"><img height="80" :src="'./static/image/乐事薯片.jpg'"  /></div>
           <div  class="hot_list">{{item.title}}</div>
           <div  class="hot_much">￥{{item.much}}</div>
         </div>
       </div>
-
+      </div>
 
 
     </div>
@@ -113,5 +122,21 @@
     color:darkgray;
     font-size: 13px;
     font-weight:bold;
+  }
+  .shang-xin{
+    /*position: relative;*/
+    right: 0px;
+    top: -30px;
+    color: white;
+    font-size: 13px;
+    background-image: url("../../assets/images/shangxin.png");
+    background-size:cover;
+    padding:7px;
+    /*width: 45px;*/
+    /*height: 30px;*/
+  }
+  .ren-qi{
+    right: 15px;
+    top: -20px;
   }
 </style>
