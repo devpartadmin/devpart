@@ -15,7 +15,7 @@
           <!--<div>-->
             <!--index={{index}}-->
           <!--</div>-->
-          <img style="width: 100%;border-radius: 8px" :src="item.src" alt="" />
+          <img style="width: 100%;border-radius: 8px" :src="item.src" alt="" @click="show_details(item.id)" />
           <div class="list">{{item.info}}</div>
           <div class="much">￥{{item.much}}</div>
         </div>
@@ -24,6 +24,10 @@
         </div>
       </div>
 
+
+    <mt-popup  v-model="dialogVisible"  popup-transition="popup-fade" style="height: 200px;width: 200px">
+      <detailes-dialog v-if="dialogVisible" :id="product_id"></detailes-dialog>
+    </mt-popup>
   </div>
 
 </template>
@@ -32,11 +36,12 @@
   import Waterfall from 'vue-waterfall/lib/waterfall'
   import WaterfallSlot from 'vue-waterfall/lib/waterfall-slot'
   import vueWaterfallEasy from 'vue-waterfall-easy'
+  import DetailesDialog from '@/views/SystemHome/DetailsDialog'
 
   export default {
     components: {
       Waterfall,
-      WaterfallSlot,vueWaterfallEasy
+      WaterfallSlot,vueWaterfallEasy,DetailesDialog
     },
     created() {
       this.imgsArr = this.initImgsArr(0,12)
@@ -44,6 +49,8 @@
     },
     data(){
       return {
+        dialogVisible:false,
+        product_id:null,
         items:[
           {id: 1, src: './static/image/乐事薯片.jpg', info:'欢迎使用Vue.js 2.6',much:'4'},
           {id: 2, src: './static/image/水果.jpg', info:'暗中观察',much:'4'},
@@ -79,6 +86,11 @@
 
       upLoadTicket(index){ //投票按钮
         console.log(index);
+      },
+      //显示详情
+      show_details(id){
+        this.dialogVisible=true;
+        this.product_id=id;
       }
     },
   }

@@ -37,7 +37,7 @@
           <div class="shang-xin" style="position: absolute">
             上新
           </div>
-          <div style="width: 100%;text-align: center" @click="add_car(item.id)"><img width="120" :src="'./static/image/乐事薯片.jpg'"  /></div>
+          <div style="width: 100%;text-align: center" @click="show_details(item.id)"><img width="120" :src="'./static/image/乐事薯片.jpg'"  /></div>
           <div class="list">{{item.title}}</div>
           <div class="much">￥{{item.much}}</div>
         </div>
@@ -56,26 +56,33 @@
           <div class="ren-qi" style="position: absolute">
             <mt-badge type="error">￥10</mt-badge>
           </div>
-          <div style="width: 100%;text-align: center"><img height="80" :src="'./static/image/乐事薯片.jpg'"  /></div>
+          <div style="width: 100%;text-align: center" @click="show_details(item.id)"><img height="80" :src="'./static/image/乐事薯片.jpg'"  /></div>
           <div  class="hot_list">{{item.title}}</div>
           <div  class="hot_much">￥{{item.much}}</div>
         </div>
       </div>
       </div>
-
-
     </div>
+
+    <mt-popup  v-model="dialogVisible"  popup-transition="popup-fade" style="height: 200px;width: 200px">
+      <detailes-dialog v-if="dialogVisible" :id="product_id"></detailes-dialog>
+    </mt-popup>
+
   </div>
 </template>
 
 <script>
   import LumpComponents from "@/views/SystemHome/LumpComponents";
   import TitleComponents from  "@/views/home/TitleComponents"
+  import DetailesDialog from '@/views/SystemHome/DetailsDialog'
+
   export default {
-    components: {LumpComponents,TitleComponents},
+    components: {LumpComponents,TitleComponents,DetailesDialog},
     data(){
       return{
          items:[],
+        dialogVisible:false,
+        product_id:null,
         foodsItems:[
           {id:1,title:"乐事薯片",much:"3.5"},
           {id:2,title:"乐事薯片",much:"3.5"},
@@ -92,9 +99,11 @@
       }
     },
     methods:{
-      add_car(id){
-        console.log("id",id);
+      show_details(id){
+        this.dialogVisible=true;
+        this.product_id=id;
       }
+
     }
   }
 </script>
