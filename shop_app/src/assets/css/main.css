@@ -28,3 +28,8 @@ body {
     font-size: 25px;
     color: coral;
 }
+.details_dialog{
+    width:300px;
+    height: 500px;
+    text-align: center;
+}

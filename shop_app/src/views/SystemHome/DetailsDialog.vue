@@ -1,7 +1,10 @@
 <template>
+   <div>
+     <div></div>
+     <div></div>
+     <div></div>
 
-   <div>..................</div>
-
+   </div>
 </template>
 
 <script>
@@ -25,9 +28,4 @@
 </script>
 
 <style scoped>
-.dialog{
-  width:100px;
-  height:100px;
-  text-align: center;
-}
 </style>

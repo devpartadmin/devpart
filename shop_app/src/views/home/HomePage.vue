@@ -20,7 +20,7 @@
           <div class="flex-1">话题</div>
           <div class="flex-1">优选</div>
           <div class="flex-1">特惠</div>
-          <div class="flex-1">活动2</div>
+          <div class="flex-1">活动</div>
         </div>
      </div>
 
@@ -33,11 +33,11 @@
       </title-components>
 
       <div style="margin-top: 10px; flex-direction: row" class="flex wrap">
-        <div style="width: 100%;margin-top: 30px;position: relative" class="flex-1" v-for="item in foodsItems">
+        <div style="width: 100%;margin-top: 30px;position: relative;border-bottom:1px solid #eaeaea;border-left:3px solid #eaeaea;border-radius: 10px;" class="flex-1" v-for="item in foodsItems">
           <div class="shang-xin" style="position: absolute">
             上新
           </div>
-          <div style="width: 100%;text-align: center" @click="show_details(item.id)"><img width="120" :src="'./static/image/乐事薯片.jpg'"  /></div>
+          <div style="width: 100%;text-align: center;" @click="show_details(item.id)"><img width="120" :src="'./static/image/乐事薯片.jpg'"  /></div>
           <div class="list">{{item.title}}</div>
           <div class="much">￥{{item.much}}</div>
         </div>
@@ -64,7 +64,7 @@
       </div>
     </div>
 
-    <mt-popup  v-model="dialogVisible"  popup-transition="popup-fade" style="height: 200px;width: 200px">
+    <mt-popup  v-model="dialogVisible"  popup-transition="popup-fade" class="details_dialog">
       <detailes-dialog v-if="dialogVisible" :id="product_id"></detailes-dialog>
     </mt-popup>
 

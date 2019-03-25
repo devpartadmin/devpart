@@ -1,14 +1,33 @@
 <template>
-  <div style="background-color: rgba(234,237,234,0.66);height: 100%" class="flex flex-v">
+  <div style="background-color: rgba(234,237,234,0.66);height: 100% ; position: relative" class="flex flex-v">
 
-    <mt-header title="更多商品" class="header-title">
+    <mt-header class="header-title">
       <router-link to="/" slot="left">
-        <mt-button  class="iconfont icon-iconfront-4 header-icon"></mt-button>
+      <mt-button  class="iconfont icon-iconfront-4 header-icon"></mt-button>
       </router-link>
-      <mt-button icon="more" slot="right"></mt-button>
     </mt-header>
-    <br/>
 
+    <div style="width:100%;height:100px;position: absolute;" class="flex" >
+      <div style="width:30px"></div>
+      <div class="flex-1"  >
+        <mt-search style="height:100px;width:100%; " v-model="search_keys" cancel-text="取消"  placeholder="搜索"/>
+
+      </div>
+    </div>
+
+      <!--<mt-header class="header-title">-->
+        <!--<router-link to="/" slot="left">-->
+          <!--<mt-button  class="iconfont icon-iconfront-4 header-icon"></mt-button>-->
+        <!--</router-link>-->
+      <!--</mt-header>-->
+
+      <div style="text-align: center;font-size: 14px;margin-top: 3px;">
+        <span >全部</span>
+        <span style="margin-left: 30px">销量</span>
+        <span style="margin-left: 30px">价格</span>
+        <span style="margin-left: 30px">特惠</span>
+        <span style="margin-left: 30px">视频</span>
+      </div>
 
       <div v-masonry transition-duration="0.0s" item-selector=".item"  class="flex-1" style="overflow: auto">
         <div v-masonry-tile class="item animated zoomIn"  v-for="(item, index) in imgsArr" >
@@ -24,8 +43,7 @@
         </div>
       </div>
 
-
-    <mt-popup  v-model="dialogVisible"  popup-transition="popup-fade" style="height: 200px;width: 200px">
+    <mt-popup  v-model="dialogVisible"  popup-transition="popup-fade" class="details_dialog">
       <detailes-dialog v-if="dialogVisible" :id="product_id"></detailes-dialog>
     </mt-popup>
   </div>
@@ -49,6 +67,7 @@
     },
     data(){
       return {
+        search_keys:'',
         dialogVisible:false,
         product_id:null,
         items:[
@@ -135,4 +154,24 @@
     /*animation-delay: 2s;*/
     /*animation-iteration-count: infinite;*/
   }
+
+  >>>.mint-searchbar{
+    background-color: transparent;
+  }
+  /*>>>.mint-searchbar-core{*/
+    /*width:90%;*/
+  /*}*/
+  >>>.mint-searchbar-inner{
+    height: 25px;
+    /*width: 75%;*/
+    /*border-radius: 18px;*/
+    /*margin-left: 60px;*/
+    padding:0px;
+    /*flex:0.8;*/
+  }
+
+  >>>.mint-searchbar-cancel {
+    color: #a2fc3e;
+  }
+
 </style>

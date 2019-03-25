@@ -5,7 +5,7 @@
     <!--<span class="iconfont icon-calendar"></span>-->
 
     <!--</div>-->
-    <mt-header>
+    <mt-header title="Wow商城" style="color:black;font-size: 15px">
 
       <mt-button slot="left" class="iconfont icon-shouye header-icon"></mt-button>
       <mt-button class="iconfont icon-xingzhuanggongnengtubiao- header-icon" slot="right"></mt-button>
@@ -68,6 +68,6 @@
     color: coral;
   }
   >>>.mint-header{
-    background-color: rgba(205,208,205,0.66);
+    background-color: #eaeaea;
   }
 </style>
