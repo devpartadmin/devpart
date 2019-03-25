@@ -1,6 +1,15 @@
 
+/*字体*/
+@font-face{
+    font-family: 'pmzd';
+    src:url('../font/pangmenzhengdao.ttf');}
+@font-face{
+    font-family: 'DS-DIGI';
+    src:url('../font/DS-DIGI.ttf');}
+
 body {
     margin: 0;
+    font-family: "微软雅黑","Microsoft YaHei", Arial, sans-serif;
 }
 .list{
     color:dimgray;

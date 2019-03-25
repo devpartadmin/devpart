@@ -34,7 +34,6 @@
 
       <div style="margin-top: 10px; flex-direction: row" class="flex wrap">
         <div style="width: 100%;margin-top: 30px;position: relative" class="flex-1" v-for="item in foodsItems">
-
           <div class="shang-xin" style="position: absolute">
             上新
           </div>

@@ -4,10 +4,13 @@ import router from './router'
 import store from './store'
 import './registerServiceWorker'
 
+// import 'animate.css'
 
+
+import {VueMasonryPlugin} from 'vue-masonry';
+Vue.use(VueMasonryPlugin)
 // import '@/assets/font/iconfont.css'
 Vue.config.productionTip = false
-
 
 import Mint from 'mint-ui';
 import 'mint-ui/lib/style.css'
