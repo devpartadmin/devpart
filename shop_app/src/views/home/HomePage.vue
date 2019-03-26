@@ -112,7 +112,7 @@
   img.swipe-img {width: 100%}
 
   >>>.mint-swipe-items-wrap{
-    background-color: #e7e1cd;
+    background-color: white;
   }
 
   hr{
