@@ -2,7 +2,7 @@
   <div style="height: 100%;background-color: rgba(234,237,234,0.66);position: relative">
     <div>
       <mt-swipe :auto="3000" style="height: 200px;" >
-        <mt-swipe-item v-for="item in images"><img class="swipe-img" :src="item.src"/></mt-swipe-item>
+        <mt-swipe-item :key="item.id" v-for="item in images"><img class="swipe-img" :src="item.src"/></mt-swipe-item>
         <!--<mt-swipe-item ><img class="swipe-img" :src="'./static/image/水果.jpg'"/></mt-swipe-item>-->
         <!--<mt-swipe-item ><img class="swipe-img" :src="'./static/image/香鱼片.jpg'"/></mt-swipe-item>-->
       </mt-swipe>
