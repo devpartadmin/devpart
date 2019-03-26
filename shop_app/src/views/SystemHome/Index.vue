@@ -8,12 +8,12 @@
     <mt-header title="Wow商城" style="color:black;font-size: 15px;position: relative">
 
       <mt-button slot="left" class="iconfont icon-shouye header-icon"></mt-button>
-      <!--<shop-car-components :conunt="30"  slot="right"></shop-car-components>-->
-      <mt-button class="iconfont icon-xingzhuanggongnengtubiao- header-icon" slot="right"></mt-button>
+      <shop-car-components :count="30"  slot="right"></shop-car-components>
+      <!--<mt-button class="iconfont icon-xingzhuanggongnengtubiao- header-icon" slot="right"></mt-button>-->
       <mt-button class="iconfont icon-shouye_sousuo header-icon" slot="right"></mt-button>
 
     </mt-header>
-    <mt-badge type="error" size="small" style="position: absolute;margin-right: 3px">30</mt-badge>
+    <!--<mt-badge type="error" size="small" style="position: absolute;margin-right: 3px">30</mt-badge>-->
 
     <router-view class="flex-1" style="margin-bottom: 50px;overflow: auto"></router-view>
 

@@ -1,6 +1,6 @@
 <template>
    <div style="position: relative">
-     <div style="position: absolute;font-size: 30px;color:black;margin-right: 3px" class="iconfont icon-Icon_close" ></div>
+     <div style="position: absolute;font-size: 30px;color:black;right: 3px" class="iconfont icon-Icon_close" ></div>
      <br/>
      <div >
        <img width="300" :src="'./static/image/乐事薯片.jpg'"  />
