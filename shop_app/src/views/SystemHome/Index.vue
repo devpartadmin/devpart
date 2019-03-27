@@ -1,19 +1,10 @@
 <template>
   <div class="flex flex-v" style="height:100%">
-    <!--<div>-->
-    <!--<span class="iconfont icon-shouye_gouwuche"></span>-->
-    <!--<span class="iconfont icon-calendar"></span>-->
-
-    <!--</div>-->
     <mt-header title="Wow商城" style="color:black;font-size: 15px;position: relative">
-
-      <mt-button slot="left" class="iconfont icon-shouye header-icon"></mt-button>
+      <mt-button slot="left" class="iconfont icon-shouye header-icon" @click="$router.push({name:'HomePageIndex'})"></mt-button>
       <shop-car-components :count="30"  slot="right"></shop-car-components>
-      <!--<mt-button class="iconfont icon-xingzhuanggongnengtubiao- header-icon" slot="right"></mt-button>-->
-      <mt-button class="iconfont icon-shouye_sousuo header-icon" slot="right"></mt-button>
-
+      <mt-button class="iconfont icon-shouye_sousuo header-icon" slot="right" @click="$router.push({name:'HomePageIndexSearch'})"></mt-button>
     </mt-header>
-    <!--<mt-badge type="error" size="small" style="position: absolute;margin-right: 3px">30</mt-badge>-->
 
     <router-view class="flex-1" style="margin-bottom: 50px;overflow: auto"></router-view>
 
@@ -35,8 +26,6 @@
         我的
       </mt-tab-item>
     </mt-tabbar>
-
-
   </div>
 </template>
 
@@ -48,7 +37,7 @@
     component:{ShopCarComponents},
     data() {
       return {
-        selected: "",
+        selected: "首页",
       }
     },
     methods:{

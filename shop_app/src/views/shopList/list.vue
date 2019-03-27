@@ -16,10 +16,8 @@
     </div>
 
     <mt-popup  v-model="dialogVisible"  popup-transition="popup-fade" class="details_dialog">
-      <detailes-dialog v-if="dialogVisible" :id="product_id"></detailes-dialog>
+      <detailes-dialog v-if="dialogVisible" :id="product_id" @closed="dialogVisible = false"></detailes-dialog>
     </mt-popup>
-
-
 
   </div>
 </template>
@@ -29,6 +27,7 @@
   import WaterfallSlot from 'vue-waterfall/lib/waterfall-slot'
   import vueWaterfallEasy from 'vue-waterfall-easy'
   import DetailesDialog from '@/views/SystemHome/DetailsDialog'
+
 
   export default {
     components: {

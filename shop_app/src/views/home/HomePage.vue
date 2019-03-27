@@ -3,8 +3,6 @@
     <div>
       <mt-swipe :auto="3000" style="height: 200px;" >
         <mt-swipe-item :key="item.id" v-for="item in images"><img class="swipe-img" :src="item.src"/></mt-swipe-item>
-        <!--<mt-swipe-item ><img class="swipe-img" :src="'./static/image/水果.jpg'"/></mt-swipe-item>-->
-        <!--<mt-swipe-item ><img class="swipe-img" :src="'./static/image/香鱼片.jpg'"/></mt-swipe-item>-->
       </mt-swipe>
     </div>
 
@@ -39,7 +37,7 @@
             上新
           </div>
           <div style="width: 100%;text-align: center;" @click="show_details(item.id)"><img style="border-radius: 8px" width="120" :src="item.src"  /></div>
-          <div class="list" >{{item.title}}</div>
+          <div class="list">{{item.title}}</div>
           <div class="much">￥{{item.much}}</div>
         </div>
         </div>
@@ -66,8 +64,8 @@
       </div>
     </div>
 
-    <mt-popup  v-model="dialogVisible"  popup-transition="popup-fade" class="details_dialog">
-      <detailes-dialog v-if="dialogVisible" :id="product_id"></detailes-dialog>
+    <mt-popup  v-model="detailDialogState.dialogVisible"  popup-transition="popup-fade" class="details_dialog">
+      <detailes-dialog v-if="detailDialogState.dialogVisible" v-bind.sync="detailDialogState" @close="detailDialogState.dialogVisible=false"></detailes-dialog>
     </mt-popup>
 
   </div>
@@ -82,9 +80,9 @@
     components: {LumpComponents,TitleComponents,DetailesDialog},
     data(){
       return{
-         items:[],
-        dialogVisible:false,
-        product_id:null,
+        items:[],
+        detailDialogState: {dialogVisible:false, product_id:null,},
+        // detailDialogState: {dialogVisible:true, product_id:2,},
         foodsItems:[
           {id: 1, src: './static/image/乐事薯片.jpg', title:'欢迎使用Vue.js 2.6',much:'4'},
           {id: 2, src: './static/image/水果.jpg', title:'暗中观察',much:'4'},
@@ -102,8 +100,7 @@
     },
     methods:{
       show_details(id){
-        this.dialogVisible=true;
-        this.product_id=id;
+        this.detailDialogState = {dialogVisible:true, product_id:id};
       }
 
     }

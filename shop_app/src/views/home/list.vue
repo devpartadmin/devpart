@@ -1,20 +1,7 @@
 <template>
-  <div style="background-color: rgba(234,237,234,0.66);height: 100% ; position: relative" class="flex flex-v" >
+  <div style="background-color: rgba(234,237,234,0.66);height: 100% ; " class="flex flex-v">
 
-    <mt-header class="header-title">
-      <router-link to="/" slot="left">
-      <mt-button  class="iconfont icon-iconfront-4 header-icon"></mt-button>
-      </router-link>
-      <shop-car-components :count="30"  slot="right"></shop-car-components>
-    </mt-header>
-
-    <div style="width:100%;height:39px;position: absolute;pointer-events :none" class="flex"  >
-      <div style="width:40px;"></div>
-      <div class="flex-1" style="pointer-events :auto">
-        <mt-search style="height:39px;width:100%;" v-model="search_keys" cancel-text="取消"  placeholder="搜索"/>
-      </div>
-      <div style="width:40px;"></div>
-    </div>
+    <header-index :search_keys="search_keys"></header-index>
 
     <mt-navbar v-model="selected" style="border-bottom: #ccc solid 1px;border-top: #ccc solid 1px;color: #666666;height:39px;">
       <mt-tab-item id="all">全部</mt-tab-item>
@@ -32,11 +19,11 @@
 
 <script>
   import ShopList from "@/views/shopList/list"
-
+  import HeaderIndex from "@/views/SystemHome/HeaderIndex"
   import ShopCarComponents from "@/views/ShopCarComponents"
   export default {
     components: {
-      ShopCarComponents,ShopList
+      ShopCarComponents,ShopList,HeaderIndex
     },
     created() {
 
@@ -57,10 +44,6 @@
 <style scoped>
   >>>.mint-header{
     background-color: rgba(205,208,205,0.66);
-  }
-  .header-title{
-    font-size: 20px;
-    color:black;
   }
   >>>.mint-searchbar{
     background-color: transparent;
