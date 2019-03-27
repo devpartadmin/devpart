@@ -44,7 +44,6 @@
     },
     data(){
       return {
-        selected:'',
         search_keys:'',
         dialogVisible:false,
         product_id:null,

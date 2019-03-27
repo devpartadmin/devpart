@@ -16,9 +16,9 @@
       <div style="width:40px;"></div>
     </div>
 
-    <mt-navbar v-model="selected">
+    <mt-navbar v-model="selected" style="border-bottom: #ccc solid 1px;border-top: #ccc solid 1px;color: #666666;height:39px;">
       <mt-tab-item id="all">全部</mt-tab-item>
-      <mt-tab-item id="sales_volume">销量></mt-tab-item>
+      <mt-tab-item id="sales_volume">销量</mt-tab-item>
       <mt-tab-item id="price">价格</mt-tab-item>
       <mt-tab-item id="discounts">特惠</mt-tab-item>
       <mt-tab-item id="filtrate">筛选</mt-tab-item>
@@ -43,6 +43,7 @@
     },
     data(){
       return {
+        search_keys:'',
         selected:'all',
         dialogVisible:false,
       }
@@ -85,4 +86,13 @@
   >>>.mint-header{
     background-color: #eaeaea;
   }
+  >>>.mint-tab-item-label{
+    font-size: 15px;
+    line-height: 0.5px;
+  }
+  >>>.mint-navbar .mint-tab-item.is-selected{
+    border-bottom: 2px solid #2ab795;
+    color: #2ab795;
+  }
+
 </style>

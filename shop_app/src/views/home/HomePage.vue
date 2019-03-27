@@ -33,13 +33,15 @@
       </title-components>
 
       <div style="margin-top: 10px; flex-direction: row" class="flex wrap">
-        <div style="width: 100%;margin-top: 30px;position: relative;border-bottom:1px solid #eaeaea;border-left:3px solid #eaeaea;border-radius: 10px;" class="flex-1" v-for="item in foodsItems">
+        <div style="width: 100%;margin-top: 30px;position: relative;border-radius: 10px;" class="flex-1" v-for="item in foodsItems">
+          <div style="border: rgba(234,237,234,0.66) 1px solid;border-radius: 8px" >
           <div class="shang-xin" style="position: absolute">
             上新
           </div>
-          <div style="width: 100%;text-align: center;" @click="show_details(item.id)"><img width="120" :src="'./static/image/乐事薯片.jpg'"  /></div>
-          <div class="list">{{item.title}}</div>
+          <div style="width: 100%;text-align: center;" @click="show_details(item.id)"><img style="border-radius: 8px" width="120" :src="item.src"  /></div>
+          <div class="list" >{{item.title}}</div>
           <div class="much">￥{{item.much}}</div>
+        </div>
         </div>
       </div>
      </div>
@@ -56,7 +58,7 @@
           <div class="ren-qi" style="position: absolute">
             <mt-badge type="error">￥10</mt-badge>
           </div>
-          <div style="width: 100%;text-align: center" @click="show_details(item.id)"><img height="80" :src="'./static/image/乐事薯片.jpg'"  /></div>
+          <div style="width: 100%;text-align: center" @click="show_details(item.id)"><img height="80" :src="item.src"  /></div>
           <div  class="hot_list">{{item.title}}</div>
           <div  class="hot_much">￥{{item.much}}</div>
         </div>
@@ -84,12 +86,12 @@
         dialogVisible:false,
         product_id:null,
         foodsItems:[
-          {id:1,title:"乐事薯片",much:"3.5"},
-          {id:2,title:"乐事薯片",much:"3.5"},
-          {id:3,title:"乐事薯片",much:"3.5"},
-          {id:4,title:"乐事薯片",much:"3.5"},
-          {id:5,title:"乐事薯片",much:"3.5"},
-          {id:6,title:"乐事薯片",much:"3.5"},
+          {id: 1, src: './static/image/乐事薯片.jpg', title:'欢迎使用Vue.js 2.6',much:'4'},
+          {id: 2, src: './static/image/水果.jpg', title:'暗中观察',much:'4'},
+          {id: 3, src: './static/image/牛肉粒.jpg', title:'Michelangelo is a party dude.',much:'4'},
+          {id: 4, src: './static/image/香鱼片.jpg', title:'We are Teenage Mutant Ninja Turtles!',much:'4'},
+          {id: 5, src: './static/image/水果.jpg', title:'I have got out of this game for a lot of years.',much:'4'},
+          {id: 6, src: './static/image/香鱼片.jpg', title:'We are Teenage Mutant Ninja Turtles!',much:'4'},
         ],
         images:[
           {id:1,src:"./static/image/乐事薯片.jpg"},

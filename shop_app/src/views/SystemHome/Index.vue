@@ -17,21 +17,21 @@
 
     <router-view class="flex-1" style="margin-bottom: 50px;overflow: auto"></router-view>
 
-    <mt-tabbar @input="switchNewTab" v-model="selected">
+    <mt-tabbar @input="switchNewTab" v-model="selected" style="color: #666666">
       <mt-tab-item id="首页">
-        <div class="iconfont icon-shouye1 header-icon"></div>
+        <div class="iconfont icon-shouye1"></div>
         首页
       </mt-tab-item>
       <mt-tab-item id="订单">
-        <div class="iconfont icon-zongheguanli header-icon"></div>
+        <div class="iconfont icon-zongheguanli"></div>
         订单
       </mt-tab-item>
       <mt-tab-item id="发现">
-        <div class="iconfont icon-shouye1 header-icon"></div>
+        <div class="iconfont icon-shouye1 "></div>
         发现
       </mt-tab-item>
       <mt-tab-item id="我的">
-        <div class="iconfont icon-gerenzhanghaoguanli header-icon"></div>
+        <div class="iconfont icon-gerenzhanghaoguanli"></div>
         我的
       </mt-tab-item>
     </mt-tabbar>
@@ -71,9 +71,12 @@
 <style scoped>
   .header-icon {
     font-size: 25px;
-    color: coral;
+    color:#2ab795;
   }
   >>>.mint-header{
     background-color: #eaeaea;
+  }
+  >>>.mint-tabbar > .mint-tab-item.is-selected {
+    color: #2ab795;
   }
 </style>

@@ -27,7 +27,8 @@
 <style scoped>
   .header-icon {
     font-size: 25px;
-    color: coral;
+    color: #2ab795;
+    font-weight: bolder;
   }
   .badge-icon {
     right: -7px;
