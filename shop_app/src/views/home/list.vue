@@ -42,9 +42,6 @@
 </script>
 
 <style scoped>
-  >>>.mint-header{
-    background-color: rgba(205,208,205,0.66);
-  }
   >>>.mint-searchbar{
     background-color: transparent;
   }

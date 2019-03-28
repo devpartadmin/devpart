@@ -16,9 +16,9 @@
 
      </div>
      <div style="width:100%;margin-top: 10px;" class="flex">
-       <span class="iconfont icon-Icon_add_circle count_icon"></span>
-       <input v-model="count" class="flex-1 amount-input">
-       <span class="iconfont icon-round-remove_circle- count_icon-2"></span>
+       <span class="iconfont icon-Icon_add_circle count_icon" @click="addCount"></span>
+       <input v-model.number="count" class="flex-1 amount-input">
+       <span class="iconfont icon-round-remove_circle- count_icon-2" @click="subtract"></span>
      </div>
      <div style="margin-top: 15px;">
        <mt-button @click="addCar" style="border-radius: 18px;width:40%;background-color: #2ab795;color:white;font-size: 15px">加入购物车</mt-button>
@@ -30,25 +30,38 @@
 <script>
   export default {
     props:{
-      id:{},
+      product_id:{},
     },
     mounted(){
-      console.log("dialogId",this.id)
+      console.log("dialogId",this.product_id)
     },
     watch:{
-
+      count(){
+        this.count = Number.parseInt(this.count) < 1 ? 1 : this.count;
+      }
     },
     data(){
       return{
-        count:'',
+        count:'3',
         taste_value:'',
         tastes:["麻辣","孜然","五香", "黄瓜"]
       }
     },
-    methods:{
-      addCar(){
 
+    methods:{
+      addCount(){
+        this.count = Number.parseInt(this.count)+1;
       },
+      subtract(){
+        this.count = Number.parseInt(this.count)-1;
+      },
+      addCar(){
+         this.$toast({
+           message: '成功添加到购物车',
+           iconClass: 'iconfont icon-web-icon-'
+         })
+      },
+
       toBuy(){
 
       },

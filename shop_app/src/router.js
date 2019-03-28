@@ -66,6 +66,12 @@ export default new Router({
       name: 'HomePageIndexSearch',
       meta: {breadcrumbTitle: '搜索页'},
       component: ()=>import('@/views/shopList/Search'),
+    },
+    {
+      path:'/car',
+      name:'HomePageIndexCarPage',
+      meta: {breadcrumbTitle: '购物车'},
+      component: ()=>import('@/views/carAbout/CarPage'),
     }
 
   ]

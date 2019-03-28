@@ -16,7 +16,7 @@
     </div>
 
     <mt-popup  v-model="dialogVisible"  popup-transition="popup-fade" class="details_dialog">
-      <detailes-dialog v-if="dialogVisible" :id="product_id" @closed="dialogVisible = false"></detailes-dialog>
+      <detailes-dialog v-if="dialogVisible" :id="product_id" @close="dialogVisible = false"></detailes-dialog>
     </mt-popup>
 
   </div>

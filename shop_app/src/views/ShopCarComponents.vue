@@ -1,5 +1,5 @@
 <template>
-  <span style="position: relative;font-size: 15px;" @click="showShopcart">
+  <span style="position: relative;font-size: 15px;" @click="$router.push({name:'HomePageIndexCarPage'})">
     <mt-badge class="badge-icon" type="error" size="small" style="position: absolute">{{count}}</mt-badge>
     <mt-button class="iconfont icon-xingzhuanggongnengtubiao- header-icon"></mt-button>
   </span>
@@ -17,9 +17,9 @@
       }
     },
     methods:{
-      showShopcart() {
-        alert('showShopcart !')
-      }
+      // showShopcart() {
+      //   alert('showShopcart !')
+      // }
     },
   }
 </script>

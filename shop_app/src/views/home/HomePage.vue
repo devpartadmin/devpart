@@ -68,6 +68,8 @@
       <detailes-dialog v-if="detailDialogState.dialogVisible" v-bind.sync="detailDialogState" @close="detailDialogState.dialogVisible=false"></detailes-dialog>
     </mt-popup>
 
+
+
   </div>
 </template>
 
