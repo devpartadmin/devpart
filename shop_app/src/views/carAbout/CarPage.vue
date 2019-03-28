@@ -8,7 +8,7 @@
     </mt-header>
 
     <div style="overflow: auto;height: 80%;">
-      <div style="background-color: white;border-radius: 8px;margin-top:10px;width:90%;margin-left: 18px;" class="flex" v-for="item in items">
+      <div style="background-color: white;border-radius: 8px;margin-top:10px;width:90%;margin-left: 18px;" class="flex animated zoomIn" v-for="item in items">
         <div class="flex-1"><img height="55" :src="item.src" style="border-radius: 8px;"/></div>
         <div class="flex-1">
           <div class="info">{{item.name}}</div>
@@ -23,9 +23,11 @@
       </div>
     </div>
 
-    <div style="background-color: white;height: 70px;width: 100%;margin-top: 55px;border-radius: 8px;">
-
-
+    <div style="background-color: white;height: 70px;width: 100%;margin-top: 55px;border-radius: 8px;line-height: 60px;text-align: center" class="flex">
+      <div style="width: 80%;">
+        <span style="font-size: 16px;color:#666666;">商品总价</span> &nbsp;&nbsp;<span style="color: red">￥100</span>
+      </div>
+      <div  @click="" style="background-color: #2ab795;width: 100px;color: white">去结算</div>
     </div>
   </div>
 </template>
@@ -37,15 +39,15 @@
         pageCount:6,
         items:[
           {id:"1",name:"水果缤纷",taste:"甜",much:"15",src:"./static/image/水果.jpg"},
-          {id:"2",name:"薯片",taste:"麻辣",much:"15",src:"./static/image/水果.jpg"},
+          {id:"2",name:"薯片",taste:"麻辣",much:"15",src:"./static/image/乐事薯片.jpg"},
           {id:"3",name:"可乐",taste:"",much:"15",src:"./static/image/水果.jpg"},
-          {id:"4",name:"卫龙",taste:"",much:"15",src:"./static/image/水果.jpg"},
-          {id:"5",name:"蚕豆",taste:"五香",much:"15",src:"./static/image/水果.jpg"},
+          {id:"4",name:"卫龙",taste:"",much:"15",src:"./static/image/牛肉粒.jpg"},
+          {id:"5",name:"蚕豆",taste:"五香",much:"15",src:"./static/image/乐事薯片.jpg"},
           {id:"6",name:"烤馍片",taste:"孜然",much:"15",src:"./static/image/水果.jpg"},
-          {id:"7",name:"牛肉粒",taste:"孜然",much:"15",src:"./static/image/水果.jpg"},
-          {id:"8",name:"香鱼片",taste:"",much:"15",src:"./static/image/水果.jpg"},
+          {id:"7",name:"牛肉粒",taste:"孜然",much:"15",src:"./static/image/牛肉粒.jpg"},
+          {id:"8",name:"香鱼片",taste:"",much:"15",src:"./static/image/香鱼片.jpg"},
           {id:"9",name:"可口可乐",taste:"",much:"15",src:"./static/image/水果.jpg"},
-          {id:"10",name:"百事可乐",taste:"",much:"15",src:"./static/image/水果.jpg"},
+          {id:"10",name:"百事可乐",taste:"",much:"15",src:"./static/image/乐事薯片.jpg"},
         ],
       }
     }

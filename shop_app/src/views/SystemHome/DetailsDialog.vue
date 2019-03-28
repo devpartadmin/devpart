@@ -28,7 +28,9 @@
 </template>
 
 <script>
+  import { Toast } from 'mint-ui'
   export default {
+
     props:{
       product_id:{},
     },
@@ -56,6 +58,7 @@
         this.count = Number.parseInt(this.count)-1;
       },
       addCar(){
+        // alert("成功")
          this.$toast({
            message: '成功添加到购物车',
            iconClass: 'iconfont icon-web-icon-'

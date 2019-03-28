@@ -67,9 +67,6 @@
     <mt-popup  v-model="detailDialogState.dialogVisible"  popup-transition="popup-fade" class="details_dialog">
       <detailes-dialog v-if="detailDialogState.dialogVisible" v-bind.sync="detailDialogState" @close="detailDialogState.dialogVisible=false"></detailes-dialog>
     </mt-popup>
-
-
-
   </div>
 </template>
 
@@ -99,6 +96,11 @@
           {id:3,src:"./static/image/香鱼片.jpg"},
         ],
       }
+    },
+    mounted(){
+      this.foodsItems && this.foodsItems.forEach(f =>{
+        f.title = f.title && f.title.length > 8 ? f.title.substring(0,8)+'......' : f.title;
+      })
     },
     methods:{
       show_details(id){
