@@ -9,19 +9,19 @@
     <router-view class="flex-1" style="margin-bottom: 50px;overflow: auto"></router-view>
 
     <mt-tabbar @input="switchNewTab" v-model="selected" style="color: #666666">
-      <mt-tab-item id="首页" @click="$router.push({name:'HomePageIndex'})">
+      <mt-tab-item id="首页">
         <div class="iconfont icon-shouye1"></div>
         首页
       </mt-tab-item>
-      <mt-tab-item id="订单" @click="$router.push({name:'HomePageIndexIndentManage'})">
+      <mt-tab-item id="订单" >
         <div class="iconfont icon-zongheguanli"></div>
         订单
       </mt-tab-item>
-      <mt-tab-item id="发现" @click="$router.push({name:'HomePageIndex'})">
+      <mt-tab-item id="发现" >
         <div class="iconfont icon-shouye1 "></div>
         发现
       </mt-tab-item>
-      <mt-tab-item id="我的" @click="$router.push({name:'HomePageIndexPersonCenter'})">
+      <mt-tab-item id="我的">
         <div class="iconfont icon-gerenzhanghaoguanli"></div>
         我的
       </mt-tab-item>
@@ -46,8 +46,8 @@
         switch (tabName) {
           case '首页': this.$router.push({name: 'HomePageIndex'});break;
           case '订单': this.$router.push({name: 'IndentIndex'});break;
-          case '发现': this.$router.push({name: ''});break;
-          case '我的': this.$router.push({name: ''});break;
+          case '发现': this.$router.push({name: 'HomePageIndex'});break;
+          case '我的': this.$router.push({name: 'CenterIndex'});break;
           default:
             console.error('未知的tab');
         }

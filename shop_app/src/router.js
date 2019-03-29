@@ -52,6 +52,24 @@ export default new Router({
               component: () => import('@/views/indentManage/IndentIndex'),
             }
           ]
+        },
+        {
+          path:'center',
+          name:'Center',
+          redirect:{name:'CenterIndex'},
+          meta: {breadcrumbTitle: '个人中心'},
+          component: {
+            render() {
+              return <router-view/>
+            }
+          },
+          children:[
+            {
+              path:'',
+              name:'CenterIndex',
+              component:()=> import('@/views/personManage/PersonIndex'),
+            }
+          ]
         }
       ]
     },
@@ -73,20 +91,6 @@ export default new Router({
       meta: {breadcrumbTitle: '购物车'},
       component: ()=>import('@/views/carAbout/CarPage'),
     },
-    {
-      path: '/indent',
-      name: 'HomePageIndexIndentManage',
-      meta: {breadcrumbTitle: '订单管理'},
-      component: ()=>import('@/views/indentManage/IndentIndex'),
-    },
-    {
-      path: '/center',
-      name: 'HomePageIndexPersonCenter',
-      meta: {breadcrumbTitle: '个人中心'},
-      component: ()=>import('@/views/personManage/PersonIndex'),
-    }
-
-
   ]
 })
 

@@ -1,10 +1,16 @@
 <template>
-  
+  <div>
+    订单订单订单订单订单订单订单订单订单订单订单订单订单订单订单订单订单订单订单订单订单
+  </div>
 </template>
 
 <script>
   export default {
-    name: "IndentIndex"
+    data(){
+      return{
+
+      }
+    }
   }
 </script>
 
