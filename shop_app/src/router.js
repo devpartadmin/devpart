@@ -72,7 +72,91 @@ export default new Router({
       name:'HomePageIndexCarPage',
       meta: {breadcrumbTitle: '购物车'},
       component: ()=>import('@/views/carAbout/CarPage'),
+    },
+    {
+      path: '/indent',
+      name: 'HomePageIndexIndentManage',
+      meta: {breadcrumbTitle: '订单管理'},
+      component: ()=>import('@/views/indentManage/IndentIndex'),
+    },
+    {
+      path: '/center',
+      name: 'HomePageIndexPersonCenter',
+      meta: {breadcrumbTitle: '个人中心'},
+      component: ()=>import('@/views/personManage/PersonIndex'),
     }
+
 
   ]
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

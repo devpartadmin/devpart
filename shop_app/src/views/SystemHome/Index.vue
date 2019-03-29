@@ -9,19 +9,19 @@
     <router-view class="flex-1" style="margin-bottom: 50px;overflow: auto"></router-view>
 
     <mt-tabbar @input="switchNewTab" v-model="selected" style="color: #666666">
-      <mt-tab-item id="首页">
+      <mt-tab-item id="首页" @click="$router.push({name:'HomePageIndex'})">
         <div class="iconfont icon-shouye1"></div>
         首页
       </mt-tab-item>
-      <mt-tab-item id="订单">
+      <mt-tab-item id="订单" @click="$router.push({name:'HomePageIndexIndentManage'})">
         <div class="iconfont icon-zongheguanli"></div>
         订单
       </mt-tab-item>
-      <mt-tab-item id="发现">
+      <mt-tab-item id="发现" @click="$router.push({name:'HomePageIndex'})">
         <div class="iconfont icon-shouye1 "></div>
         发现
       </mt-tab-item>
-      <mt-tab-item id="我的">
+      <mt-tab-item id="我的" @click="$router.push({name:'HomePageIndexPersonCenter'})">
         <div class="iconfont icon-gerenzhanghaoguanli"></div>
         我的
       </mt-tab-item>

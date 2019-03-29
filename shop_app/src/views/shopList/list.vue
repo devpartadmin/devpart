@@ -1,5 +1,5 @@
 <template>
-  <div ref="waterfall_container">
+  <div ref="scroll_container">
 
     <div v-masonry transition-duration="0.0s" item-selector=".item"  class="flex-1" style="overflow: auto;margin-top:10px;"  >
       <div v-masonry-tile class="item animated zoomIn"  v-for="(item, index) in imgsArr" >
@@ -14,6 +14,11 @@
       <!--<mt-button size="large" type="danger" @click="fetchImgsData">LOAD MORE</mt-button >-->
       <!--</div>-->
     </div>
+    <div style="margin-left: 150px;">
+      <mt-spinner type="fading-circle" v-if="loading" :size="50" color="#2ab795"></mt-spinner>
+    </div>
+
+
 
     <mt-popup  v-model="dialogVisible"  popup-transition="popup-fade" class="details_dialog">
       <detailes-dialog v-if="dialogVisible" :id="product_id" @close="dialogVisible = false"></detailes-dialog>
@@ -27,6 +32,18 @@
   import WaterfallSlot from 'vue-waterfall/lib/waterfall-slot'
   import vueWaterfallEasy from 'vue-waterfall-easy'
   import DetailesDialog from '@/views/SystemHome/DetailsDialog'
+  import axios from 'axios'
+  import throttle from 'lodash/throttle'
+
+  const imageService = {
+    findImages() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          axios.get('./static/mockdata/images.json').then(resolve, reject);
+        }, 1600);
+      });
+    },
+  };
 
 
   export default {
@@ -37,77 +54,80 @@
     props:{
       selected: {},
     },
-    created() {
-      this.imgsArr = this.initImgsArr(0,12)
-      this.fetchImgsArr = this.initImgsArr(0, 12) // 模拟每次请求的新的图片的数据
-    },
     data(){
       return {
         search_keys:'',
         dialogVisible:false,
         product_id:null,
-        items:[
-          {id: 1, src: './static/image/乐事薯片.jpg', info:'欢迎使用Vue.js 2.6',much:'4'},
-          {id: 2, src: './static/image/水果.jpg', info:'暗中观察',much:'4'},
-          {id: 3, src: './static/image/牛肉粒.jpg', info:'Michelangelo is a party dude.',much:'4'},
-          {id: 4, src: './static/image/香鱼片.jpg', info:'We are Teenage Mutant Ninja Turtles!',much:'4'},
-          {id: 5, src: './static/image/水果.jpg', info:'I have got out of this game for a lot of years.',much:'4'},
-          {id: 6, src: './static/image/乐事薯片.jpg', info:'看好你哟',much:'4'},
-          {id: 7, src: './static/image/牛肉粒.jpg', info:'这个需求很简单，怎么实现我不管。哪种语言你随便，不服可以找老板。横批：明天上线。',much:'4'},
-          {id: 8, src: './static/image/乐事薯片.jpg', info:'We are Teenage Mutant Ninja Brothers!',much:'4'},
-          {id: 9, src: './static/image/水果.jpg', info:'多线程编程 - 理论与实践',much:'4'},
-          {id: 10, src: './static/image/乐事薯片.jpg', info:'ipanda',much:'4'},
-          {id: 11, src: './static/image/牛肉粒.jpg', info:'欢迎学习MongoDB',much:'4'},
-          {id: 12, src: './static/image/水果.jpg', info:'panda',much:'4'},
-        ],
         imgsArr: [],
         fetchImgsArr: [],
+        loading: false,
       }
     },
     methods:{
       // 假数据
-      initImgsArr(n, m) { //num 图片数量
-        var arr = []
-        for (var i = n; i < m; i++) {
-          arr.push(this.items[i]);
-        }
-        return arr
-      },
+      // initImgsArr(n, m) { //num 图片数量
+      //   var arr = []
+      //   for (var i = n; i < m; i++) {
+      //     arr.push(this.items[i]);
+      //   }
+      //   return arr
+      // },
 
       fetchImgsData() {
-        console.log('fetching...')
-        this.imgsArr = this.imgsArr.concat(this.fetchImgsArr)
+        console.log('fetching...');
+
+        this.loading = true;
+
+        return imageService.findImages().then(({data}) => {
+          this.imgsArr = this.imgsArr.concat(data.records);
+        }).finally(() => { this.loading = false; });
+
       },
+
+      throttleFetchImgsData: throttle(function() {
+        if (!this.loading) {
+          this.fetchImgsData();
+        }
+      }, 600),
 
       upLoadTicket(index){ //投票按钮
         console.log(index);
       },
+
+      /**
+       * 是否到底
+       * @returns {boolean}
+       */
+      isReachBottom() {
+        let element = this.$refs.scroll_container;
+        return element.scrollHeight - (element.clientHeight +  element.scrollTop) < 200;
+      },
+
+      updateScrollBtn (evt) {
+        // let element = evt.target;
+        // let isReachBottom = element.scrollHeight - (element.clientHeight +  element.scrollTop) < 200;
+
+        if (this.isReachBottom()) {
+          // console.log("Reach bottom!");
+          this.throttleFetchImgsData();
+        }
+        // console.log('updateScrollBtn', {target:evt.target});
+        // console.log('updateScrollBtn', evt.target.scrollTop);
+      },
+
       //显示详情
       show_details(id){
         this.dialogVisible=true;
         this.product_id=id;
       },
-      updateScrollBtn(evt) {
-
-        let element = evt.target;
-        console.log("element",element);
-
-        let isReachBottom = element.scrollHeight - element.scrollTop === element.clientHeight
-
-        if (isReachBottom) {
-          console.log("Reach bottom!");
-          this.fetchImgsData();
-        }
-        // console.log('updateScrollBtn', {target:evt.target});
-        // console.log('updateScrollBtn', evt.target.scrollTop);
-      },
     },
     mounted() {
-      // this.updateScrollBtn();
-      this.$refs.waterfall_container.addEventListener('scroll', this.updateScrollBtn, false);
+      this.fetchImgsData();
+      this.$refs.scroll_container.addEventListener('scroll', this.updateScrollBtn, false);
     },
     beforeDestroy() {
-      this.$refs.waterfall_container.removeEventListener('scroll', this.updateScrollBtn);
+      this.$refs.scroll_container.removeEventListener('scroll', this.updateScrollBtn);
     },
   }
 </script>
