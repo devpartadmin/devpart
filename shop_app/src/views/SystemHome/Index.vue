@@ -1,7 +1,11 @@
 <template>
   <div class="flex flex-v" style="height:100%">
     <mt-header title="Wow商城" style="color:black;font-size: 15px;position: relative">
-      <mt-button slot="left" class="iconfont icon-shouye header-icon" @click="$router.push({name:'HomePageIndex'})"></mt-button>
+      <span  slot="left" style="position: relative" @click="$router.push({name:'NewsManagement'})">
+         <mt-button slot="left" style="font-weight: bold;" class="iconfont icon-iconfront- header-icon" ></mt-button>
+         <div class="badge-icon" style="position: absolute"></div>
+      </span>
+
       <shop-car-components :count="30"  slot="right"></shop-car-components>
       <mt-button class="iconfont icon-shouye_sousuo header-icon" slot="right" @click="$router.push({name:'HomePageIndexSearch'})"></mt-button>
     </mt-header>
@@ -67,5 +71,16 @@
   }
   >>>.mint-tabbar > .mint-tab-item.is-selected {
     color: #2ab795;
+  }
+  .badge-icon {
+    right: 1px;
+    top: -9px;
+    z-index: 1;
+    transform: scale(0.8);
+    font-size: 8px;
+    width:9px;
+    height: 9px;
+    border-radius: 10px;
+    background-color: red;
   }
 </style>

@@ -70,7 +70,7 @@ export default new Router({
               component:()=> import('@/views/personManage/PersonIndex'),
             }
           ]
-        }
+        },
       ]
     },
     {
@@ -91,6 +91,12 @@ export default new Router({
       meta: {breadcrumbTitle: '购物车'},
       component: ()=>import('@/views/carAbout/CarPage'),
     },
+    {
+      path:'/news',
+      name:'NewsManagement',
+      meta: {breadcrumbTitle: '消息中心'},
+      component: ()=>import('@/views/SystemHome/NewsIndex'),
+    }
   ]
 })
 
