@@ -29,6 +29,8 @@
 
 <script>
   import { Toast } from 'mint-ui'
+  import {mapState,mapGetters,mapActions,mapMutations} from 'vuex';
+
   export default {
 
     props:{
@@ -44,13 +46,15 @@
     },
     data(){
       return{
-        count:'3',
+        count:3,
         taste_value:'',
         tastes:["麻辣","孜然","五香", "黄瓜"]
       }
     },
 
     methods:{
+      ...mapMutations('shopcart', ['add_cart_count']),
+      ...mapActions('shopcart', ['init_shopcart']),
       addCount(){
         this.count = Number.parseInt(this.count)+1;
       },
@@ -58,11 +62,14 @@
         this.count = Number.parseInt(this.count)-1;
       },
       addCar(){
-        // alert("成功")
-         this.$toast({
-           message: '成功添加到购物车',
-           iconClass: 'iconfont icon-web-icon-'
-         })
+        this.add_cart_count(this.count);
+        // this.init_shopcart();
+        this.$emit('close');
+        this.$toast({
+          message: '成功添加到购物车',
+          iconClass: 'iconfont icon-web-icon-',
+          className: 'cart-info-toast',
+        })
       },
 
       toBuy(){
@@ -71,8 +78,14 @@
     }
   }
 </script>
-
+<style>
+  .cart-info-toast {
+    z-index:3000
+  }
+</style>
 <style scoped>
+
+
   .button{
     height: 30px;
     width: 60px;

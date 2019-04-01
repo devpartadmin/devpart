@@ -25,3 +25,15 @@
   /*}*/
 /*}*/
 </style>
+
+<script>
+  import {mapState,mapGetters,mapActions,mapMutations} from 'vuex';
+  export default {
+    methods : {
+      ...mapActions('shopcart', ['init_shopcart']),
+    },
+    created() {
+      this.init_shopcart();
+    }
+  }
+</script>

@@ -72,6 +72,13 @@
       "src": "./static/image/香鱼片.jpg",
       "info": "panda",
       "much":"4"
+    },
+
+    {
+      "id": 13,
+      "src": "./static/image/香鱼片.jpg",
+      "info": "panda2",
+      "much":"4"
     }
   ]
 }

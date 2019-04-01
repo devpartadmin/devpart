@@ -36,24 +36,6 @@ export default new Router({
           ]
         },
         {
-          path:'indent',
-          name:'Indent',
-          redirect:{name:'IndentIndex'},
-          meta: {breadcrumbTitle: '订单'},
-          component: {
-            render() {
-              return <router-view/>
-            }
-          },
-          children:[
-            {
-              path: '',
-              name: 'IndentIndex',
-              component: () => import('@/views/indentManage/IndentIndex'),
-            }
-          ]
-        },
-        {
           path:'center',
           name:'Center',
           redirect:{name:'CenterIndex'},

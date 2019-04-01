@@ -1,16 +1,21 @@
 <template>
   <span style="position: relative;font-size: 15px;" @click="$router.push({name:'HomePageIndexCarPage'})">
-    <mt-badge class="badge-icon" type="error" size="small" style="position: absolute">{{count}}</mt-badge>
+    <mt-badge class="badge-icon" type="error" size="small" style="position: absolute">{{cart_count}}</mt-badge>
     <mt-button class="iconfont icon-xingzhuanggongnengtubiao- header-icon"></mt-button>
   </span>
 </template>
 
 <script>
-  export default {
-    props:{
-      count:Number,
-    },
 
+  import {mapState,mapGetters,mapActions} from 'vuex';
+
+  export default {
+    // props:{
+    //   count:Number,
+    // },
+    computed: {
+      ...mapState('shopcart', ['cart_count']),
+    },
     data(){
       return{
 

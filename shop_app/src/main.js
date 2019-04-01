@@ -16,6 +16,10 @@ import Mint from 'mint-ui';
 import 'mint-ui/lib/style.css'
 Vue.use(Mint);
 
+// import 'pretty-checkbox/src/pretty-checkbox.scss'
+import PrettyCheckbox from 'pretty-checkbox-vue';
+Vue.use(PrettyCheckbox);
+
 import '@/assets/css/main.css'
 import '@/assets/css/my-mint.scss'
 import '@/assets/css/flex-box.css'

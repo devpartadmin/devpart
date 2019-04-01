@@ -17,13 +17,9 @@
         <div class="iconfont icon-shouye1"></div>
         首页
       </mt-tab-item>
-      <mt-tab-item id="订单" >
-        <div class="iconfont icon-zongheguanli"></div>
-        订单
-      </mt-tab-item>
-      <mt-tab-item id="发现" >
-        <div class="iconfont icon-shouye1 "></div>
-        发现
+      <mt-tab-item id="购物车" >
+        <div class="iconfont icon-shouye_gouwuche "></div>
+        购物车
       </mt-tab-item>
       <mt-tab-item id="我的">
         <div class="iconfont icon-gerenzhanghaoguanli"></div>
@@ -49,8 +45,7 @@
         console.log('switchNewTab' , tabName)
         switch (tabName) {
           case '首页': this.$router.push({name: 'HomePageIndex'});break;
-          case '订单': this.$router.push({name: 'IndentIndex'});break;
-          case '发现': this.$router.push({name: 'HomePageIndex'});break;
+          case '购物车': this.$router.push({name: 'HomePageIndexCarPage'});break;
           case '我的': this.$router.push({name: 'CenterIndex'});break;
           default:
             console.error('未知的tab');
