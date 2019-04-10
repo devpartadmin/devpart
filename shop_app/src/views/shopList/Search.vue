@@ -11,13 +11,18 @@
     </div>
 
     <div>
+
        <p class="title"> 历史纪录 <span style="font-size: 18px;right: 3px" class="iconfont icon-delete" @click="del"></span></p>
+
     </div>
 
     <div style="">
-      <div   v-for="item in historyItems " v-model="search_keys" style="display: inline-block;" class="animated zoomIn">
-        <div class="hot-search">{{item.hot_name}}</div>
-      </div>
+      <transition-group name="fade" enter-active-class="animated zoomIn">
+        <div :key="item.id"  v-for="item in historyItems "
+             v-model="search_keys" style="display: inline-block;">
+          <div class="hot-search">{{item.hot_name}}</div>
+        </div>
+      </transition-group>
     </div>
 
 
@@ -45,7 +50,18 @@
           {id:"6",hot_name:"卫龙"},
           {id:"7",hot_name:"烤馍片"},
         ],
-        historyItems:[
+        historyItems:[],
+      }
+    },
+    methods:{
+      del(){
+        this.historyItems = [];
+      }
+    },
+
+    mounted() {
+      setTimeout(()=>{
+        this.historyItems = [
           {id:"1",hot_name:"坚果"},
           {id:"2",hot_name:"雪碧"},
           {id:"3",hot_name:"可口可乐"},
@@ -53,13 +69,8 @@
           {id:"5",hot_name:"薯片"},
           {id:"6",hot_name:"卫龙"},
           {id:"7",hot_name:"烤馍片"},
-        ],
-      }
-    },
-    methods:{
-      del(){
-        this.historyItems = [];
-      }
+        ];
+      }, 100);
     }
   }
 </script>
@@ -84,4 +95,10 @@
     margin-top: 10px;
   }
 
+  .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-leave-to  {
+    opacity: 0;
+  }
 </style>
